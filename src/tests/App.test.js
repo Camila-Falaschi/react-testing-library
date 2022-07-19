@@ -41,6 +41,7 @@ describe('Testando o componente App', () => {
         level: 2,
       });
       expect(headingHome).toHaveTextContent(/Encountered pokémons/i);
+      expect(headingAbout).not.toBeInTheDocument();
     });
 
   test('ao clicar no link `About` a aplicação é redirecionada para a página inicial',
@@ -63,6 +64,7 @@ describe('Testando o componente App', () => {
         level: 2,
       });
       expect(headingAbout).toHaveTextContent(/About Pokédex/i);
+      expect(headingHome).not.toBeInTheDocument();
     });
 
   test(`ao clicar no link 'Favorite Pokémons' a aplicação é redirecionada para a
@@ -85,5 +87,18 @@ describe('Testando o componente App', () => {
       level: 2,
     });
     expect(headingFavorite).toHaveTextContent(/Favorite Pokémons/i);
+    expect(headingHome).not.toBeInTheDocument();
   });
+
+  test('a aplicação é direcionada à página `Not Found` ao entrar em uma URL deconhecida',
+    () => {
+      const { history } = renderWithRouter(<App />);
+      history.push('/non-existent-url');
+
+      const headingNotFound = screen.getByRole('heading', {
+        name: /Page requested not found/i,
+        level: 2,
+      });
+      expect(headingNotFound).toBeDefined();
+    });
 });
