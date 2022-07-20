@@ -23,7 +23,5 @@ describe('Testando o componente `NotFound`', () => {
       .getByAltText('Pikachu crying because the page requested was not found');
 
     expect(image).toHaveAttribute('src', 'https://media.giphy.com/media/kNSeTs31XBZ3G/giphy.gif');
-    // expect(image).toHaveAttribute('alt',
-    //   'Pikachu crying because the page requested was not found');
   });
 });
