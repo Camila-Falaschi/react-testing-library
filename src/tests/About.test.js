@@ -28,9 +28,8 @@ describe('Testando o componente About', () => {
     renderWithRouter(<About />);
 
     const image = screen.getByRole('img');
-    // const imageUrl = 'https://cdn2.bulbagarden.net/upload/thumb/8/86/Gen_I_Pok%C3%A9dex.png/800px-Gen_I_Pok%C3%A9dex.png';
-    // console.log(image);
-    // expect(image.src).toContain(imageUrl);
+
+    // Para 'toHaveAttribute' foi consultado o site DEV (https://dev.to/raphaelchaula/a-simple-image-test-in-react-3p6f)
     expect(image).toHaveAttribute('src', 'https://cdn2.bulbagarden.net/upload/thumb/8/86/Gen_I_Pok%C3%A9dex.png/800px-Gen_I_Pok%C3%A9dex.png');
     expect(image).toHaveAttribute('alt', 'Pokédex');
   });
