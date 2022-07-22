@@ -1,4 +1,3 @@
-
-describe('Testando o componente `Pokedex`', () => {
+describe('Testando o componente `Pokemon`', () => {
   test('', () => {});
 });
