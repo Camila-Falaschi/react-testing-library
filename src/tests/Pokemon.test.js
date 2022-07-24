@@ -38,6 +38,7 @@ describe('Testando o componente `Pokemon`', () => {
     const { history } = renderWithRouter(<App />);
     history.push(`/pokemons/${pikachu.id}`);
     expect(pokemonsDetailsPage).toBeDefined();
+    expect(detailsLink).not.toBeInTheDocument();
   });
 
   test('Se o pokemon está favoritado deve ter um ícone de estrela no card do pokemon',
